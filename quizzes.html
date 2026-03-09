@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quizzes - Smart Academic Scheduler</title>
+
+<link rel="stylesheet" href="quizzes.css">
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+<h2>🎓 Smart Academic Scheduler</h2>
+<a href="homepage.html">🏠 Home</a>
+<a href="dashboard.html">📊 Dashboard</a>
+<a href="assignments.html">📘 Assignments</a>
+<a href="timetable.html">🗓 Timetable</a>
+<a href="notes.html">📝 Notes</a>
+<a href="quizzes.html" class="active">❓ Quizzes</a>
+<a href="notification.html">🔔 Notifications</a>
+<a href="settings.html">⚙️ Settings</a>
+<a href="profile.html">👤 Profile</a>
+<a href="logout.html">🚪 Logout</a>
+</div>
+
+<!-- Topbar -->
+<div class="topbar">
+<h1>❓ Smart Quizzes</h1>
+<div class="user-info">
+<span>Welcome, Student 👤</span>
+</div>
+</div>
+
+<!-- Main Content -->
+<div class="main">
+
+<div class="stats-container">
+
+<div class="stat-card">
+<h2>12</h2>
+<p>Total Quizzes</p>
+</div>
+
+<div class="stat-card">
+<h2>8</h2>
+<p>Completed</p>
+</div>
+
+<div class="stat-card">
+<h2>4</h2>
+<p>Available</p>
+</div>
+
+<div class="stat-card">
+<h2>85%</h2>
+<p>Average Score</p>
+</div>
+
+</div>
+
+
+<!-- Filter -->
+<div class="card">
+
+<h3>🔎 Find Quiz</h3>
+
+<div class="filter-section">
+
+<select id="subjectFilter" onchange="filterQuizzes()">
+<option value="">All Subjects</option>
+<option>Mathematics</option>
+<option>Physics</option>
+<option>Chemistry</option>
+<option>Biology</option>
+<option>English</option>
+<option>Computer Science</option>
+</select>
+
+<select id="statusFilter" onchange="filterQuizzes()">
+<option value="">All Status</option>
+<option>Available</option>
+<option>Completed</option>
+</select>
+
+<input type="text" id="searchQuiz" placeholder="Search quizzes..." onkeyup="filterQuizzes()">
+
+</div>
+
+
+<table id="quizTable">
+
+<thead>
+<tr>
+<th>#</th>
+<th>Subject</th>
+<th>Quiz Title</th>
+<th>Questions</th>
+<th>Time</th>
+<th>Status</th>
+<th>Score</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>1</td>
+<td>Mathematics</td>
+<td>Algebra Basics</td>
+<td>15</td>
+<td>30 min</td>
+<td class="status-completed">Completed</td>
+<td>92%</td>
+<td><button class="btn btn-start" onclick="retakeQuiz()">Retake</button></td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Physics</td>
+<td>Newton's Laws</td>
+<td>20</td>
+<td>40 min</td>
+<td class="status-available">Available</td>
+<td>-</td>
+<td><button class="btn btn-start" onclick="startQuiz()">Start</button></td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script src="quizzes.js"></script>
+
+</body>
+</html>

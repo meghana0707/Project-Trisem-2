@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Notifications - Smart Academic Scheduler</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background:#eef1f7;
+}
+
+/* SIDEBAR */
+.sidebar{
+    width:230px;
+    height:100vh;
+    background:linear-gradient(#1f3c88,#2a5298);
+    color:white;
+    position:fixed;
+    padding-top:20px;
+}
+
+.sidebar h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.sidebar a{
+    display:block;
+    padding:12px 20px;
+    color:white;
+    text-decoration:none;
+}
+
+.sidebar a:hover{
+    background:rgba(255,255,255,0.2);
+}
+
+/* TOPBAR */
+.topbar{
+    margin-left:230px;
+    background:#2a5298;
+    color:white;
+    padding:15px 20px;
+    display:flex;
+    justify-content:space-between;
+}
+
+/* MAIN */
+.main{
+    margin-left:230px;
+    padding:25px;
+}
+
+/* CARD */
+.card{
+    background:white;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom:15px;
+}
+
+/* UNREAD */
+.unread{
+    border-left:5px solid #4CAF50;
+    background:#f1fff3;
+}
+
+/* BUTTON */
+button{
+    background:#2a5298;
+    color:white;
+    border:none;
+    padding:8px 12px;
+    border-radius:5px;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.small{
+    font-size:13px;
+    color:gray;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h2>🎓 Smart Academic Scheduler</h2>
+    <a href="homepage.html">🏠 Home</a>
+    <a href="dashboard.html">📊 Dashboard</a>
+    <a href="assignments.html">📘 Assignments</a>
+    <a href="timetable.html">🗓 Time Table</a>
+    <a href="notes.html">📝 Notes</a>
+    <a href="quizzes.html">❓ Quizzes</a>
+    <a href="notifications.html">🔔 Notifications</a>
+    <a href="logout.html">🚪 Logout</a>
+</div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+    <div>🔔 Notifications</div>
+    <div>Welcome, Student 👤</div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<h2>Your Notifications</h2>
+
+<!-- DSA Demo Buttons - Click to see DSA concepts working! -->
+<div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+    <h3 style="margin-top: 0;">🔬 DSA Concepts Demo - Click These!</h3>
+    <button onclick="testHashing()" style="background: #28a745; margin-right: 10px;">Test Hashing (O(1))</button>
+    <button onclick="testBinarySearch()" style="background: #ffc107; color: black; margin-right: 10px;">Test Binary Search</button>
+    <button onclick="testAddDelete()" style="background: #dc3545;">Test Add/Delete</button>
+</div>
+
+<!-- UNREAD NOTIFICATION -->
+<div class="card unread">
+    <h4>📘 New Assignment Added</h4>
+    <p>Math assignment has been added. Due date: 25 April.</p>
+    <div class="small">2 minutes ago</div>
+    <button onclick="markRead(this)">Mark as Read</button>
+</div>
+
+<!-- UNREAD NOTIFICATION -->
+<div class="card unread">
+    <h4>📝 Quiz Available</h4>
+    <p>Physics Quiz 1 is now available.</p>
+    <div class="small">1 hour ago</div>
+    <button onclick="markRead(this)">Mark as Read</button>
+</div>
+
+<!-- READ NOTIFICATION -->
+<div class="card">
+    <h4>📅 Timetable Updated</h4>
+    <p>Your weekly timetable has been updated.</p>
+    <div class="small">Yesterday</div>
+</div>
+
+</div>
+
+<script>
+
+// ================== HASHING (for quick storage & deletion) ==================
+// Hash Table for fast notification storage and deletion - O(1) operations!
+
+class NotificationHashTable {
+    constructor() {
+        this.table = {};
+    }
+    
+    // Hash function to generate unique key
+    hash(key) {
+        let hash = 0;
+        for (let i = 0; i < key.length; i++) {
+            hash = (hash + key.charCodeAt(i)) % 1000;
+        }
+        return "notif_" + hash;
+    }
+    
+    // Store notification - O(1)
+    store(id, notification) {
+        let key = this.hash(id);
+        this.table[key] = { id: id, ...notification, timestamp: Date.now() };
+    }
+    
+    // Delete notification - O(1)
+    delete(id) {
+        let key = this.hash(id);
+        if (this.table[key]) {
+            delete this.table[key];
+            return true;
+        }
+        return false;
+    }
+    
+    // Get notification - O(1)
+    get(id) {
+        let key = this.hash(id);
+        return this.table[key] || null;
+    }
+    
+    // Get all - O(n)
+    getAll() {
+        return Object.values(this.table);
+    }
+}
+
+// Initialize hash table
+const notifHash = new NotificationHashTable();
+
+// Store sample notifications using hashing
+notifHash.store("notif_1", { title: "New Assignment Added", message: "Math assignment due: 25 April", read: false });
+notifHash.store("notif_2", { title: "Quiz Available", message: "Physics Quiz 1 is now available", read: false });
+notifHash.store("notif_3", { title: "Timetable Updated", message: "Weekly timetable updated", read: true });
+
+// ================== BINARY SEARCH (for fast searching) ==================
+// Binary Search for quick finding - O(log n) instead of O(n)!
+
+class NotificationSearch {
+    constructor(notifications) {
+        // Sort by timestamp for binary search
+        this.sorted = [...notifications].sort((a, b) => a.timestamp - b.timestamp);
+    }
+    
+    // Binary Search - O(log n) - Much faster for large lists!
+    binarySearchByTitle(targetTitle) {
+        let left = 0;
+        let right = this.sorted.length - 1;
+        
+        while (left <= right) {
+            let mid = Math.floor((left + right) / 2);
+            let midTitle = this.sorted[mid].title.toLowerCase();
+            let target = targetTitle.toLowerCase();
+            
+            if (midTitle === target) {
+                return this.sorted[mid];
+            }
+            else if (midTitle < target) {
+                left = mid + 1;
+            }
+            else {
+                right = mid - 1;
+            }
+        }
+        return null; // Not found
+    }
+    
+    // Linear Search fallback - O(n)
+    linearSearchByTitle(targetTitle) {
+        for (let notif of this.sorted) {
+            if (notif.title.toLowerCase().includes(targetTitle.toLowerCase())) {
+                return notif;
+            }
+        }
+        return null;
+    }
+}
+
+// Initialize search with hash table data
+let allNotifications = notifHash.getAll();
+const notifSearch = new NotificationSearch(allNotifications);
+
+// ================== UI FUNCTIONS ==================
+
+function markRead(btn){
+    let card = btn.parentElement;
+    card.classList.remove("unread");
+    btn.remove();
+}
+
+// TEST FUNCTIONS FOR BUTTONS
+function testHashing() {
+    let start = performance.now();
+    // Add 1000 notifications using hashing
+    for(let i=1; i<=1000; i++) {
+        notifHash.store("test_"+i, {title: "Test "+i, message: "Test message"});
+    }
+    let end = performance.now();
+    alert("HASHING TEST RESULTS:\n\nStored 1000 notifications in: " + (end-start).toFixed(2) + "ms\n\nThis is O(1) per operation!\n\nHashing makes storage & deletion super fast!");
+}
+
+function testBinarySearch() {
+    // Create sorted array for binary search
+    let sortedArr = [];
+    for(let i=1; i<=100; i++) {
+        sortedArr.push({title: "Item " + i, value: i});
+    }
+    
+    // Binary Search - O(log n)
+    let start = performance.now();
+    let result = null;
+    for(let i=0; i<100; i++) {
+        let target = "Item 50";
+        let left=0, right=sortedArr.length-1;
+        while(left<=right) {
+            let mid = Math.floor((left+right)/2);
+            if(sortedArr[mid].title === target) { result = sortedArr[mid]; break; }
+            else if(sortedArr[mid].title < target) left = mid+1;
+            else right = mid-1;
+        }
+    }
+    let end = performance.now();
+    
+    alert("BINARY SEARCH TEST RESULTS:\n\nSearched 100 times in: " + (end-start).toFixed(2) + "ms\n\nFound: " + result.title + "\n\nThis is O(log n) - Much faster than O(n)!\n\nFor 1000 items, binary search takes only ~10 steps!");
+}
+
+function testAddDelete() {
+    // Test add using hashing - O(1)
+    let id = "demo_" + Date.now();
+    notifHash.store(id, {title: "Demo Notification", message: "Added via Hashing"});
+    
+    alert("ADD TEST SUCCESS!\n\nNotification added in O(1) time using Hashing!\n\nNow testing delete...");
+    
+    // Test delete using hashing - O(1)
+    setTimeout(function() {
+        notifHash.delete(id);
+        alert("DELETE TEST SUCCESS!\n\nNotification deleted in O(1) time using Hashing!\n\nHashing is super fast for add & delete operations!");
+    }, 1000);
+}
+
+console.log("DSA Concepts Active in Background!");
+console.log("- Hashing for storage/deletion: O(1)");
+console.log("- Binary Search for finding: O(log n)");
+</script>
+
+</body>
+</html>

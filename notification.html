@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Notifications - Smart Academic Scheduler</title>
+
+<link rel="stylesheet" href="notification.css">
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+<h2>🎓 Smart Academic Scheduler</h2>
+
+<a href="homepage.html">🏠 Home</a>
+<a href="dashboard.html">📊 Dashboard</a>
+<a href="assignments.html">📘 Assignments</a>
+<a href="timetable.html">🗓 Time Table</a>
+<a href="notes.html">📝 Notes</a>
+<a href="quizzes.html">❓ Quizzes</a>
+<a href="notifications.html">🔔 Notifications</a>
+<a href="settings.html">⚙️ Settings</a>
+<a href="profile.html">👤 Profile</a>
+<a href="logout.html">🚪 Logout</a>
+
+</div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+<div>🔔 Notifications</div>
+<div>Welcome, Student 👤</div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<h2>Your Notifications</h2>
+
+<div class="demo">
+<h3>🔬 DSA Concepts Demo</h3>
+
+<button onclick="testHashing()">Test Hashing (O(1))</button>
+<button onclick="testBinarySearch()">Test Binary Search</button>
+<button onclick="testAddDelete()">Test Add/Delete</button>
+
+</div>
+
+<!-- UNREAD -->
+<div class="card unread">
+
+<h4>📘 New Assignment Added</h4>
+<p>Math assignment has been added. Due date: 25 April.</p>
+
+<div class="small">2 minutes ago</div>
+
+<button onclick="markRead(this)">Mark as Read</button>
+
+</div>
+
+<!-- UNREAD -->
+<div class="card unread">
+
+<h4>📝 Quiz Available</h4>
+<p>Physics Quiz 1 is now available.</p>
+
+<div class="small">1 hour ago</div>
+
+<button onclick="markRead(this)">Mark as Read</button>
+
+</div>
+
+<!-- READ -->
+<div class="card">
+
+<h4>📅 Timetable Updated</h4>
+<p>Your weekly timetable has been updated.</p>
+
+<div class="small">Yesterday</div>
+
+</div>
+
+</div>
+
+<script src="notification.js"></script>
+
+</body>
+</html>

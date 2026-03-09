@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assignments - Smart Academic Scheduler</title>
+
+<link rel="stylesheet" href="assignment.css">
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+<h2>🎓 Smart Academic Scheduler</h2>
+
+<a href="homepage.html">🏠 Home</a>
+<a href="dashboard.html">📊 Dashboard</a>
+<a href="assignments.html" class="active">📘 Assignments</a>
+<a href="timetable.html">🗓 Timetable</a>
+<a href="notes.html">📝 Notes</a>
+<a href="quizzes.html">❓ Quizzes</a>
+<a href="notification.html">🔔 Notifications</a>
+<a href="settings.html">⚙️ Settings</a>
+<a href="profile.html">👤 Profile</a>
+<a href="logout.html">🚪 Logout</a>
+
+</div>
+
+<!-- Topbar -->
+
+<div class="topbar">
+<h1>📘 Smart Assignments</h1>
+<div class="user-info">
+<span>Welcome, Student 👤</span>
+</div>
+</div>
+
+<!-- Main Content -->
+
+<div class="main">
+
+<!-- Stats -->
+
+<div class="stats-container">
+
+<div class="stat-card">
+<h2 id="totalCount">0</h2>
+<p>Total Assignments</p>
+</div>
+
+<div class="stat-card">
+<h2 id="pendingCount">0</h2>
+<p>Pending</p>
+</div>
+
+<div class="stat-card">
+<h2 id="completedCount">0</h2>
+<p>Completed</p>
+</div>
+
+<div class="stat-card">
+<h2 id="overdueCount">0</h2>
+<p>Overdue</p>
+</div>
+
+</div>
+
+<!-- Add Assignment -->
+
+<div class="card">
+
+<h3>➕ Add New Assignment</h3>
+
+<label>Subject</label>
+<select id="subject">
+<option>Mathematics</option>
+<option>Physics</option>
+<option>Chemistry</option>
+<option>Biology</option>
+<option>English</option>
+<option>Computer Science</option>
+</select>
+
+<label>Priority</label>
+<select id="priority">
+<option value="high">High Priority</option>
+<option value="medium">Medium Priority</option>
+<option value="low">Low Priority</option>
+</select>
+
+<label>Due Date</label>
+<input type="date" id="dueDate">
+
+<label>Assignment Title</label>
+<input type="text" id="assignmentTitle">
+
+<label>Description</label>
+<textarea id="assignmentDesc"></textarea>
+
+<button class="btn btn-add" onclick="addAssignment()">Add Assignment</button>
+
+</div>
+
+<!-- Assignment List -->
+
+<div class="card">
+
+<h3>📋 Your Assignments</h3>
+
+<div id="assignmentList"></div>
+
+</div>
+
+</div>
+
+<script src="assignment.js"></script>
+
+</body>
+</html>

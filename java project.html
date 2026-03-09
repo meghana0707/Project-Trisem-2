@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Notifications - Smart Academic Scheduler</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="sidebar">
+<h2>🎓 Smart Academic Scheduler</h2>
+
+<a href="#">🏠 Home</a>
+<a href="#">📊 Dashboard</a>
+<a href="#">📘 Assignments</a>
+<a href="#">🗓 Time Table</a>
+<a href="#">📝 Notes</a>
+<a href="#">❓ Quizzes</a>
+<a href="#">🔔 Notifications</a>
+<a href="#">⚙ Settings</a>
+<a href="#">👤 Profile</a>
+<a href="#">🚪 Logout</a>
+</div>
+
+<div class="topbar">
+<div>🔔 Notifications</div>
+<div>Welcome Student 👤</div>
+</div>
+
+<div class="main">
+
+<h2>Your Notifications</h2>
+
+<div class="demo">
+<h3>DSA Demo</h3>
+<button onclick="testHashing()">Test Hashing</button>
+<button onclick="testBinarySearch()">Test Binary Search</button>
+<button onclick="testAddDelete()">Test Add/Delete</button>
+</div>
+
+<div class="card unread">
+<h4>📘 New Assignment Added</h4>
+<p>Math assignment due 25 April</p>
+<div class="small">2 minutes ago</div>
+<button onclick="markRead(this)">Mark as Read</button>
+</div>
+
+<div class="card unread">
+<h4>📝 Quiz Available</h4>
+<p>Physics quiz available</p>
+<div class="small">1 hour ago</div>
+<button onclick="markRead(this)">Mark as Read</button>
+</div>
+
+<div class="card">
+<h4>📅 Timetable Updated</h4>
+<p>Your timetable updated</p>
+<div class="small">Yesterday</div>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background: #f4f4f4;
+    height: 100vh;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.title h1 {
+    font-size: 48px;
+    color: #3a4e7a;
+    margin-bottom: 10px;
+}
+
+.title p {
+    color: #777;
+    font-size: 14px;
+}
+
+.login-btn {
+    position: absolute;
+    right: 120px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(90deg, #4f6df5, #6f8cff);
+    padding: 12px 28px;
+    border-radius: 25px;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    transform: translateY(-50%) scale(1.05);
+}
+
+.icon {
+    position: absolute;
+    font-size: 32px;
+}
+
+.book { top: 60px; left: 120px; }
+.cap { top: 60px; }
+.idea { top: 60px; right: 120px; }
+.note { bottom: 120px; left: 150px; }
+.clock { top: 200px; right: 150px; }
+.books { bottom: 140px; right: 180px; }
+.student { bottom: 40px; right: 120px; font-size: 48px; }

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Academic Scheduler - Notification System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>🎓 Smart Academic Scheduler</h2>
+        <a href="homepage.html">🏠 Home</a>
+        <a href="dashboard.html">📊 Dashboard</a>
+        <a href="assignments.html">📘 Assignments</a>
+        <a href="timetable.html">🗓 Time Table</a>
+        <a href="notes.html">📝 Notes</a>
+        <a href="quizzes.html">❓ Quizzes</a>
+        <a href="notifications.html" class="active">🔔 Notifications</a>
+        <a href="logout.html">🚪 Logout</a>
+    </div>
+
+    <div class="topbar">
+        <div>🔔 Notifications</div>
+        <div>Welcome, Student 👤</div>
+    </div>
+
+    <div class="main">
+        <h2>Your Notifications</h2>
+
+        <!-- DSA Concepts Demo Section -->
+        <div class="dsa-demo">
+            <h3>🔬 DSA Concepts Demo - Click to Test!</h3>
+            <div class="button-group">
+                <button onclick="testHashing()" class="btn-hashing">Test Hashing (O(1))</button>
+                <button onclick="testBinarySearch()" class="btn-search">Test Binary Search</button>
+                <button onclick="testAddDelete()" class="btn-add">Test Add/Delete</button>
+            </div>
+            <div id="result"></div>
+        </div>
+
+        <!-- Notification Form -->
+        <div class="card">
+            <h3>➕ Add New Notification</h3>
+            <input type="text" id="notifTitle" placeholder="Notification Title">
+            <input type="text" id="notifMessage" placeholder="Message">
+            <button onclick="addNotification()">Add Notification</button>
+        </div>
+
+        <!-- Notifications List -->
+        <div id="notificationList">
+            <div class="card unread">
+                <h4>📘 New Assignment Added</h4>
+                <p>Math assignment has been added. Due date: 25 April.</p>
+                <div class="small">2 minutes ago</div>
+                <button onclick="markRead(this)">Mark as Read</button>
+            </div>
+
+            <div class="card unread">
+                <h4>📝 Quiz Available</h4>
+                <p>Physics Quiz 1 is now available.</p>
+                <div class="small">1 hour ago</div>
+                <button onclick="markRead(this)">Mark as Read</button>
+            </div>
+
+            <div class="card">
+                <h4>📅 Timetable Updated</h4>
+                <p>Your weekly timetable has been updated.</p>
+                <div class="small">Yesterday</div>
+            </div>
+        </div>
+
+        <!-- Search Section -->
+        <div class="card">
+            <h3>🔍 Search Notifications</h3>
+            <input type="text" id="searchInput" placeholder="Search by title...">
+            <button onclick="searchNotifications()">Search</button>
+            <div id="searchResult"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

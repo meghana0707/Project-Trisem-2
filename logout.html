@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logout - Smart Academic Scheduler</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:'Segoe UI', sans-serif;
+    background:#eef1f7;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+/* CARD */
+.card{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+    width:350px;
+}
+
+.card h2{
+    color:#2a5298;
+}
+
+.card p{
+    color:gray;
+}
+
+button{
+    margin-top:20px;
+    padding:10px 20px;
+    border:none;
+    border-radius:6px;
+    background:#2a5298;
+    color:white;
+    cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h2>👋 Logged Out</h2>
+    <p>You have successfully logged out.</p>
+    <p>Redirecting to login page...</p>
+
+    <a href="login.html">
+        <button>Go to Login</button>
+    </a>
+
+</div>
+
+<script>
+    // Auto redirect after 3 seconds
+    setTimeout(function(){
+        window.location.href = "login.html";
+    },3000);
+</script>
+
+</body>
+</html>

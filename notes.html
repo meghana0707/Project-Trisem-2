@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notes - Smart Academic Scheduler</title>
+
+<link rel="stylesheet" href="notes.css">
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+<h2>🎓 Smart Academic Scheduler</h2>
+<a href="homepage.html">🏠 Home</a>
+<a href="dashboard.html">📊 Dashboard</a>
+<a href="assignments.html">📘 Assignments</a>
+<a href="timetable.html">🗓 Timetable</a>
+<a href="notes.html" class="active">📝 Notes</a>
+<a href="quizzes.html">❓ Quizzes</a>
+<a href="notification.html">🔔 Notifications</a>
+<a href="settings.html">⚙️ Settings</a>
+<a href="profile.html">👤 Profile</a>
+<a href="logout.html">🚪 Logout</a>
+</div>
+
+<!-- Topbar -->
+<div class="topbar">
+<h1>📝 Smart Notes</h1>
+<div class="user-info">
+<span>Welcome, Student 👤</span>
+</div>
+</div>
+
+<!-- Main -->
+<div class="main">
+
+<!-- Stats -->
+<div class="stats-container">
+<div class="stat-card">
+<h2 id="totalNotes">12</h2>
+<p>Total Notes</p>
+</div>
+
+<div class="stat-card">
+<h2 id="mathNotes">4</h2>
+<p>Math</p>
+</div>
+
+<div class="stat-card">
+<h2 id="physicsNotes">3</h2>
+<p>Physics</p>
+</div>
+
+<div class="stat-card">
+<h2 id="chemistryNotes">5</h2>
+<p>Other Subjects</p>
+</div>
+</div>
+
+<!-- Add Note -->
+<div class="card">
+<h3>➕ Create New Note</h3>
+
+<label>Subject</label>
+<select id="noteSubject">
+<option>Mathematics</option>
+<option>Physics</option>
+<option>Chemistry</option>
+<option>Biology</option>
+<option>English</option>
+<option>Computer Science</option>
+</select>
+
+<label>Title</label>
+<input type="text" id="noteTitle" placeholder="Enter note title">
+
+<label>Content</label>
+<textarea id="noteContent" placeholder="Write your notes here..."></textarea>
+
+<button class="btn btn-add" onclick="addNote()">Save Note</button>
+
+</div>
+
+<!-- Search -->
+<div class="card">
+
+<h3>🔍 Search Notes</h3>
+
+<div class="search-filter">
+<input type="text" id="searchInput" placeholder="Search notes..." onkeyup="filterNotes()">
+
+<select id="subjectFilter" onchange="filterNotes()">
+<option value="">All Subjects</option>
+<option>Mathematics</option>
+<option>Physics</option>
+<option>Chemistry</option>
+<option>Biology</option>
+<option>English</option>
+</select>
+
+</div>
+
+</div>
+
+<!-- Notes -->
+<div class="card">
+<h3>📚 Your Notes</h3>
+<div class="notes-grid" id="notesContainer"></div>
+</div>
+
+</div>
+
+<!-- Modal -->
+<div id="noteModal" class="modal">
+
+<div class="modal-content">
+
+<div class="modal-header">
+<h2 id="modalTitle"></h2>
+<span class="close" onclick="closeModal()">&times;</span>
+</div>
+
+<p id="modalSubject"></p>
+<hr>
+
+<div id="modalContent"></div>
+
+<p id="modalDate"></p>
+
+</div>
+
+</div>
+
+<script src="notes.js"></script>
+
+</body>
+</html>

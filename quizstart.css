@@ -1,0 +1,58 @@
+body{
+font-family:Arial;
+background:#eef1f7;
+padding:30px;
+}
+
+/* Layout */
+
+.wrapper{
+display:flex;
+}
+
+/* Timer */
+
+.timer-box{
+width:200px;
+background:#2a5298;
+color:white;
+padding:20px;
+border-radius:8px;
+text-align:center;
+height:120px;
+margin-right:20px;
+}
+
+#timer{
+font-size:32px;
+font-weight:bold;
+}
+
+/* Quiz Card */
+
+.card{
+background:white;
+padding:25px;
+border-radius:8px;
+width:800px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.question{
+margin-bottom:20px;
+}
+
+button{
+background:#2a5298;
+color:white;
+padding:12px 20px;
+border:none;
+cursor:pointer;
+border-radius:5px;
+}
+
+#result{
+margin-top:20px;
+font-size:18px;
+font-weight:bold;
+}

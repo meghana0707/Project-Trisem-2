@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings - Smart Academic Scheduler</title>
+
+<link rel="stylesheet" href="settings.css">
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+<h2>🎓 Smart Academic Scheduler</h2>
+
+<a href="homepage.html">🏠 Home</a>
+<a href="dashboard.html">📊 Dashboard</a>
+<a href="assignments.html">📘 Assignments</a>
+<a href="timetable.html">🗓 Timetable</a>
+<a href="notes.html">📝 Notes</a>
+<a href="quizzes.html">❓ Quizzes</a>
+<a href="notification.html">🔔 Notifications</a>
+<a href="settings.html" class="active">⚙️ Settings</a>
+<a href="profile.html">👤 Profile</a>
+<a href="logout.html">🚪 Logout</a>
+
+</div>
+
+
+<!-- Topbar -->
+<div class="topbar">
+
+<h1>⚙️ Settings</h1>
+
+<div class="user-info">
+<span>Welcome, Student 👤</span>
+</div>
+
+</div>
+
+
+<!-- Main -->
+<div class="main">
+
+<div class="card">
+
+<h3>👤 Profile Information</h3>
+
+<label>Full Name</label>
+<input type="text" id="fullName" value="Meghana Sai">
+
+<label>Email</label>
+<input type="email" id="email" value="meghana.sai@student.edu">
+
+<label>Phone</label>
+<input type="tel" id="phone" value="+91 9876543210">
+
+<label>School</label>
+<input type="text" id="school" value="Springfield High School">
+
+<button class="btn btn-save" onclick="saveProfile()">Save</button>
+<button class="btn btn-cancel" onclick="resetProfile()">Cancel</button>
+
+</div>
+
+
+<div class="card">
+
+<h3>🎨 Theme Color</h3>
+
+<div class="theme-options">
+
+<div class="theme-option purple" onclick="setTheme('purple')"></div>
+<div class="theme-option blue" onclick="setTheme('blue')"></div>
+<div class="theme-option green" onclick="setTheme('green')"></div>
+<div class="theme-option orange" onclick="setTheme('orange')"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="settings.js"></script>
+
+</body>
+</html>
